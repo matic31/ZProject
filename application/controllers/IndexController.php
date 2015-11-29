@@ -22,6 +22,7 @@ class IndexController extends Zend_Controller_Action
         print_r($cons);
         //echo 'pera';
     }
+    
 
 
 }
