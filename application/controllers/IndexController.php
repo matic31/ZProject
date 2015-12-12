@@ -16,9 +16,15 @@ class IndexController extends Zend_Controller_Action
         'uri' => 'http://servis/Index/manage'
         );
         $client = new Zend_Soap_Client(null, $options); 
-        $cons = $client->getConcerts();
-        print_r($cons);
-        echo "pera";
+        $cons = $client->getImages();
+        //print_r($cons);
+        foreach ($cons as $image) {
+            echo "idImage: ".$image->idImage."<br>";
+            $concert = $image->concert;
+            echo $concert['city'];
+            echo "<br><br>";
+        }
+        
     }
     
 
