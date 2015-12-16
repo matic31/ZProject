@@ -42,11 +42,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="top-nav">
 					<span class="menu"> <img src="images/icon.png" alt=""/></span>
 					<ul class="res">
-					   <li><a href="index.html" class="active"><span class="glyphicon glyphicon-home" aria-hidden="true"> </span></a></li> 
-						<li><a href="about.html">About Band</a></li> 
-						<li><a href="typo.html">Typo</a></li> 
-						<li><a href="gallery.html">Gallery</a></li> 
-						<li><a href="events.html">Events</a></li> 
+					   <li><a href="<?php print $this->url(array('controller'=>'Index','action'=>'index'),'default',true); ?>">Home</a></li>
+                <li><a href="<?php print $this->url(array('controller'=>'Album','action'=>'index'),'default',true); ?>">Albums</a></li>
+                <li><a href="<?php print $this->url(array('controller'=>'Concert','action'=>'index'),'default',true); ?>">Concerts</a></li>
+                <?php
+                if($this->layout()->isLogged){
+                ?>
+                <li><a href="<?php print $this->url(array('controller'=>'Administration','action'=>'index'),'default',true); ?>">Administration</a></li>
+                <?php } ?>
+                
+                <li><a href="<?php print $this->layout()->loglink; ?>">
+                    <?php print $this->layout()->logtext; ?>
+                    </a>
+                </li>
+                
+              
+               
+	   </ul> 
 						<li class="nav-line"><a href="contact.html">Contact</a></li> 
 				   </ul>
 					<!-- script-for-menu -->

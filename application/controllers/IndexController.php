@@ -1,23 +1,17 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class IndexController extends Custom_MyController
 {
 
     public function init()
     {
-        /* Initialize action controller here */
+        parent::init();
     }
 
     public function indexAction()
     {
-        Zend_Loader::loadClass('Zend_Soap_Client');
-        $options = array(
-        'location' => 'http://servis/Index/manage',
-        'uri' => 'http://servis/Index/manage'
-        );
-        $client = new Zend_Soap_Client(null, $options); 
+                $client = new Zend_Soap_Client(null, $this->getOptions()); 
         $cons = $client->getImages();
-        //print_r($cons);
         foreach ($cons as $image) {
             echo "idImage: ".$image->idImage."<br>";
             $concert = $image->concert;
